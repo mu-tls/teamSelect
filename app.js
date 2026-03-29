@@ -209,7 +209,7 @@ function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").re
 function rangeBadgeClass(r){return r<=14?"range-short":r<=20?"range-mid":"range-long"}
 
 function weaponImgPath(name){
-  let fn=name.replace(/\//g,"／").replace(/^\./,"");
+  let fn=name.replace(/\//g,"／").replace(/^\./,"").normalize("NFC");
   return"weapon/"+encodeURIComponent(fn)+".png";
 }
 function weaponImgTag(name,size){

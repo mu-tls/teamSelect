@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スプラトゥーン3 チーム分けツール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Splatoon 3 チーム分けツール</h1>
+
+<!-- Lobby: create or join room -->
+<div class="lobby" id="lobby">
+  <h2>部屋を作成、または部屋IDで参加</h2>
+  <div class="lobby-section">
+    <button class="lobby-btn" id="createRoomBtn">新しい部屋を作成</button>
+    <div class="room-notice">※部屋は作成6時間後に自動削除されます</div>
+  </div>
+  <div class="lobby-divider">― または ―</div>
+  <div class="lobby-section">
+    <input class="lobby-input" id="joinRoomInput" placeholder="部屋IDを入力" maxlength="6">
+    <br>
+    <button class="lobby-btn secondary" id="joinRoomBtn">参加する</button>
+  </div>
+</div>
+
+<!-- Main UI (shown after entering room) -->
+<div class="main-ui" id="mainUi">
+
+  <div class="room-header">
+    <div class="room-id-display">
+      部屋ID: <code id="roomIdText"></code>
+      <button id="copyRoomBtn">コピー</button>
+      <span class="copy-toast" id="copyToast">Copied!</span>
+    </div>
+    <div class="room-count" id="roomCount">0 / 8 人参加</div>
+    <div class="room-notice">※この部屋は作成6時間後に自動削除されます</div>
+  </div>
+
+  <div class="weight-control">
+    <h2>バランス比重設定</h2>
+    <div class="weight-row">
+      <span class="weight-label left">XP重視</span>
+      <input type="range" id="weightSlider" min="0" max="100" value="60">
+      <span class="weight-label right">M_Range重視</span>
+    </div>
+    <div class="weight-value" id="weightDisplay">XP 60% : M_Range 40%</div>
+  </div>
+
+  <div class="players-grid" id="playersGrid"></div>
+
+  <div class="actions">
+    <button class="btn" id="generateBtn" disabled>チーム分け実行</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<footer>武器データ: leanny.github.io/splat3 (ver.11.1.0) | スプラトゥーン3 プライベートマッチ チーム分けツール</footer>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -568,7 +568,7 @@ const weightDisplay=document.getElementById("weightDisplay");
 function updateSliderBg(){
   const v=+slider.value;
   slider.style.background=`linear-gradient(to right,var(--yellow) 0%,var(--yellow) ${v}%,var(--purple) ${v}%,var(--purple) 100%)`;
-  weightDisplay.textContent=`XP ${v}% : M_Range ${100-v}%`;
+  weightDisplay.textContent=`XP ${v}% : 射程 ${100-v}%`;
 }
 slider.addEventListener("input",updateSliderBg);
 updateSliderBg();
